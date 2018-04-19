@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Route, withRouter} from 'react-router-dom';
-import Idle from 'react-idle';
 
 import HeaderBar from './header-bar';
 import LandingPage from './landing-page';
@@ -43,18 +42,6 @@ export class App extends React.Component {
         let self = this;
         return (
             <div className="app">
-              <Idle
-                    timeout={4 * 60 * 1000}
-                    onChange={({ idle }) => console.log({ idle })}
-                    render={({ idle }) =>
-                    <h1>
-                        {idle
-                        ? "No activity detected: Logout commencing soon."
-                        : ""
-                        }
-                    </h1>
-                    }
-                />
                 <HeaderBar />
                 <Route exact path="/" component={LandingPage} />
                 <Route exact path="/dashboard" component={Dashboard} />
